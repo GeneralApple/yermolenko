@@ -1,0 +1,3 @@
+[submodule "ananyev/codoc"]
+	path = ananyev/codoc
+	url = https://github.com/vindex10/codoc.git

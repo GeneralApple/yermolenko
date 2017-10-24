@@ -1,0 +1,5 @@
+*.exe
+/.vscode/*
+*/html/*
+*/latex/*
+doxyfile
