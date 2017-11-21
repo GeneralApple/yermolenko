@@ -1,4 +1,3 @@
-// spiszhenno, no zato razobralsa
 #include <iostream>
 #include <vector>
 #define INT_MAX 100000
