@@ -1,0 +1,49 @@
+#include <iostream>
+#include <algorithm>
+
+using namespace std;
+struct cn
+{
+    cn(double a, double b):re(a),im(b){}
+    cn(int a):re(a),im(a){}
+    cn():re(0),im(0){}
+    double re;
+    double im;
+    void operator=(const cn &point){
+        this->im = point.im;
+        this->re = point.re;
+    }
+    void operator=(const int &point){
+        this->im = point;
+        this->re = point;
+    }
+    bool operator<(const cn &point){
+        return (this->im > point.im)&&(this->im > point.im);
+    }
+    void print(){
+        cout << re << " + " << im << " i";
+    }
+};
+
+int main() {
+    cn *a = new cn[15];
+    cn *b = new cn[15];
+
+
+    for (int i = 0; i < 15; ++i) {
+        a[i] = 15 - i;
+    }
+    for (int i = 0; i < 15; ++i) {
+        (a[i]).print();
+        cout << "  ";
+    }
+    std::sort(a, a+15, [](cn a, cn b) {
+        return b < a;
+    });
+    cout << "\n Now sorted \n";
+    for (int i = 0; i < 15; ++i) {
+        (a[i]).print();
+        cout << "  ";
+    }
+    return 0;
+}
