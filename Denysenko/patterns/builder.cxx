@@ -4,126 +4,101 @@
 using namespace std;
 
 // "Product"
-class Pizza
+class Car
 {
 public:
-        void setDough(const string& dough)
+        void setBrand(const string& brand)
         {
-                m_dough = dough;
+                m_brand = brand;
         }
-        void setSauce(const string& sauce)
+        void setModel(const string& model)
         {
-                m_sauce = sauce;
+                m_model = model;
         }
-        void setTopping(const string& topping)
+        void setClass(const string& cclass)
         {
-                m_topping = topping;
+                m_cclass = cclass;
         }
         void open() const
         {
-                cout << "Pizza with " << m_dough << " dough, " << m_sauce << " sauce and "
-                        << m_topping << " topping. Mmm." << endl;
+                cout << "My car: " << m_brand << " " << m_model << " " << m_cclass
+                     << ". Good choise!" << endl;
         }
 private:
-        string m_dough;
-        string m_sauce;
-        string m_topping;
+        string m_brand;
+        string m_model;
+        string m_cclass;
 };
 
 // "Abstract Builder"
-class PizzaBuilder
+class CarChooser
 {
 public:
-        virtual ~PizzaBuilder() {};
+        virtual ~CarChooser() {};
 
-        Pizza* getPizza()
+        Car* getCar()
         {
-                return m_pizza.release();
+                return m_brand.release();
         }
-        void createNewPizzaProduct()
+        void createNewCar()
         {
-                m_pizza = make_unique<Pizza>();
+                m_brand = make_unique<Car>();
         }
-        virtual void buildDough() = 0;
-        virtual void buildSauce() = 0;
-        virtual void buildTopping() = 0;
+        virtual void buildBrand() = 0;
+        virtual void buildModel() = 0;
+        virtual void buildClass() = 0;
 protected:
-        unique_ptr<Pizza> m_pizza;
+        unique_ptr<Car> m_brand;
 };
 
 //----------------------------------------------------------------
 
-class HawaiianPizzaBuilder : public PizzaBuilder
+class Mercedes : public CarChooser
 {
 public:
-        virtual ~HawaiianPizzaBuilder() {};
+        virtual ~Mercedes() {};
 
-        virtual void buildDough()
+        virtual void buildBrand()
         {
-                m_pizza->setDough("cross");
+                m_brand->setBrand("Mercedes-Benz");
         }
-        virtual void buildSauce()
+        virtual void buildModel()
         {
-                m_pizza->setSauce("mild");
+                m_brand->setModel("Coupé");
         }
-        virtual void buildTopping()
+        virtual void buildClass()
         {
-                m_pizza->setTopping("ham+pineapple");
-        }
-};
-
-class SpicyPizzaBuilder : public PizzaBuilder
-{
-public:
-        virtual ~SpicyPizzaBuilder() {};
-
-        virtual void buildDough()
-        {
-                m_pizza->setDough("pan baked");
-        }
-        virtual void buildSauce()
-        {
-                m_pizza->setSauce("hot");
-        }
-        virtual void buildTopping()
-        {
-                m_pizza->setTopping("pepperoni+salami");
+                m_brand->setClass("E-Class");
         }
 };
 
 //----------------------------------------------------------------
 
-class Cook
+class Buy
 {
 public:
-        void openPizza()
+        void openCar()
         {
-                m_pizzaBuilder->getPizza()->open();
+                m_car->getCar()->open();
         }
-        void makePizza(PizzaBuilder* pb)
+        void makeCar(CarChooser* pb)
         {
-                m_pizzaBuilder = pb;
-                m_pizzaBuilder->createNewPizzaProduct();
-                m_pizzaBuilder->buildDough();
-                m_pizzaBuilder->buildSauce();
-                m_pizzaBuilder->buildTopping();
+                m_car = pb;
+                m_car->createNewCar();
+                m_car->buildBrand();
+                m_car->buildModel();
+                m_car->buildClass();
         }
 private:
-        PizzaBuilder* m_pizzaBuilder;
+        CarChooser* m_car;
 };
 
 int main()
 {
-        Cook cook;
+        Buy buy;
+        Mercedes merc;
 
-
-        HawaiianPizzaBuilder hawaiianPizzaBuilder;
-        SpicyPizzaBuilder    spicyPizzaBuilder;
-
-        cook.makePizza(&hawaiianPizzaBuilder);
-        cook.openPizza();
-
-        cook.makePizza(&spicyPizzaBuilder);
-        cook.openPizza();
+        buy.makeCar(&merc);
+        buy.openCar();
         return 0;
 }
