@@ -1,0 +1,8 @@
+PROJECT_NAME     = "Vector"
+
+OUTPUT_DIRECTORY = . 
+
+GENERATE_HTML = YES
+CASE_SENSE_NAMES = YES
+
+INPUT            = vector.hpp
