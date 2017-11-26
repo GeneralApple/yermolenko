@@ -1,6 +1,8 @@
 // ConsoleApplication4.cpp: определяет точку входа для консольного приложения.
 //
 
+
+
 #include "stdafx.h"
 #include <stdio.h>
 #include <iostream>
@@ -9,8 +11,8 @@ using namespace std;
 
 template <typename T>
 void sort(T *a, int i) {
-	T b[i];
-	bool c[i];
+	T b[100];
+	bool c[100];
 
 	int j, k, l, ind;
 
@@ -23,12 +25,12 @@ void sort(T *a, int i) {
 		ind = k;
 		b[j] = a[k];
 
-			for (l = k; l<i; l++) {
-				if (a[l]>b[j] && c[l] == 1) {
-					b[j] = a[l];
-					ind = l;
-				}
+		for (l = k; l<i; l++) {
+			if (a[l]>b[j] && c[l] == 1) {
+				b[j] = a[l];
+				ind = l;
 			}
+		}
 
 		c[ind] = 0;
 	}
@@ -53,8 +55,9 @@ int main()
 	char t[] = "Grygoriev";
 	sort(t, 9);
 
-	
 
+	int pause;
+	cin >> pause;
 	return 0;
 }
 
