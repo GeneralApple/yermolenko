@@ -1,0 +1,19 @@
+Results:
+
+n       t
+
+30      0.019
+100     0.7
+300     2.7
+1000    10
+1500    30
+2250    115
+3000    270
+4000    625
+5000    1250
+
+
+Graph:
+
+http://radikal.ru/lfp/s019.radikal.ru/i605/1710/62/89b80567d98a.png/htm
+(green line represents some approximation with y = (x/467)^3)
