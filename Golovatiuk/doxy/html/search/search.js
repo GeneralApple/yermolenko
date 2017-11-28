@@ -7,10 +7,16 @@
 
 var indexSectionsWithContent =
 {
+  0: "agpv~",
+  1: "av",
+  2: "agpv~"
 };
 
 var indexSectionNames =
 {
+  0: "all",
+  1: "classes",
+  2: "functions"
 };
 
 function convertToId(search)
