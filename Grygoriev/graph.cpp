@@ -8,7 +8,8 @@ void dijkstra(int a[SIZE][SIZE])
 {
 
   int distance[SIZE]; // массив найденых кратчайших путей, индексы - вершины графа
-  int vertex[SIZE]; // массив меток
+  bool vertex[SIZE]; // массив меток
+  
   int temp; // для временного хранения пути
   int minindex, dist;
 
@@ -55,11 +56,14 @@ if (minindex != INF) // исполнение алгоритма
 int main ()
 {
   int a[SIZE][SIZE] = {{0  ,7  ,9  ,INF,INF,14 },
-                       {7  ,0  ,10 ,15 ,INF,INF}, // матрица путей
+                       {7  ,0  ,10 ,15 ,INF,INF}, // матриця відстаней
                        {9  ,10 ,0  ,11 ,INF,2  },
-                       {INF,15 ,11 ,0  ,6  ,INF}, // индексы по горизонтали из точки
+                       {INF,15 ,11 ,0  ,6  ,INF}, 
                        {INF,INF,INF,6  ,0  ,9  },
-                       {14 ,INF,2  ,INF,9  ,0  }}; // по вертикали в точку, значение - вес
-  dijkstra(a);
+                       {14 ,INF,2  ,INF,9  ,0  }}; 
+  int s;
+  cin>>s; 
+  
+  dijkstra(a,s); \\функція знаходить відстань з s-ї вершини до всіх інших вершин
   return 0;
 }
