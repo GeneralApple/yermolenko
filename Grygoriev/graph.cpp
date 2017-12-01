@@ -42,46 +42,20 @@ void dijkstra(int a[SIZE][SIZE])
          } //якщо вершина не виявлена, додаємо в чергу і відмічаємо як виявлену
         
       
-        if (distance[node]+a[node][j] < distance[j]) distance[j] = distance[node]+a[node][j];;
-       
-        
-      }
+        if (distance[node]+a[node][j] < distance[j]) distance[j] = distance[node]+a[node][j];
+       }
     }
-    cout << node + 1 << endl; // выводим номер вершины
+    
   }
   
-  do
-  { // исполнение алгоритма 
-    minindex = INF;
-    
-    for (int i = 0; i < SIZE; i++) // поиск ближайшей вершины к данной и непройденной до этого
-    {
-      if ((vertex[i] == 1) && (distance[i]<dist)) 
-      {
-        dist = distance[i];
-        minindex = i;
-      }
-    }
-if (minindex != INF) // исполнение алгоритма
-    {
-      for (int i = 0; i<SIZE; i++)
-      {
-        if (a[minindex][i] > 0)
-        {
-          temp = dist + a[minindex][i];
-          if (temp < distance[i]) distance[i] = temp;
-        }
-      }
-  vertex[minindex] = 0;
   
-  } while (minindex < INF);
-    
-      for (int i = 0; i < SIZE; i++)
+for (int i = 0; i < SIZE; i++)
   {
     cout << "Distance from 1st vertex to " << i+1 << " is " << distance[i] << endl;
   }
-  cout << endl;
-}
+  
+}  
+  
 
 int main ()
 {
@@ -94,6 +68,6 @@ int main ()
   int s;
   cin>>s; 
   
-  dijkstra(a,s); \\функція знаходить відстань з s-ї вершини до всіх інших вершин
+  dijkstra(a); 
   return 0;
 }
