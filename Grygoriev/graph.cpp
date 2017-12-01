@@ -12,8 +12,7 @@ void dijkstra(int a[SIZE][SIZE])
   bool vertex[SIZE]; // массив міток (чи відвідана дана вершина?)
   bool nodes[SIZE]; //відмічає виявлені (додані в чергу) вершини
   
-  int temp; // для временного хранения пути
-  int minindex, dist;
+
 
   for (i = 0; i<SIZE; i++) {
     distance[i] = INF; 
@@ -65,8 +64,7 @@ int main ()
                        {0,15 ,11 ,0  ,6  ,0}, 
                        {0,0,0,6  ,0  ,9  },
                        {14 ,0,2  ,0,9  ,0  }}; // "0" означає відсутність ребер
-  int s;
-  cin>>s; 
+   
   
   dijkstra(a); 
   return 0;
