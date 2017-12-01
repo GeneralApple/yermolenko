@@ -15,7 +15,7 @@ void dijkstra(int a[SIZE][SIZE])
   
 
 
-  for (i = 0; i<SIZE; i++) {
+  for (int i = 0; i<SIZE; i++) {
     distance[i] = INF; 
     vertex[i] = 0;
     nodes[i] = 0;
@@ -49,9 +49,9 @@ void dijkstra(int a[SIZE][SIZE])
   }
   
   
-for (int i = 0; i < SIZE; i++)
+for (int k = 0; k < SIZE; k++)
   {
-    cout << "Distance from 1st vertex to " << i+1 << " is " << distance[i] << endl;
+    cout << "Distance from 1st vertex to " << k+1 << " is " << distance[k] << endl;
   }
   
 }  
@@ -68,8 +68,11 @@ int main ()
    
   
   dijkstra(a); 
+  
+   int pause;
+  cin>>pause;
+  
   return 0;
   
-  int pause;
-  cin>>pause;
+ 
 }
