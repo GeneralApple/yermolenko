@@ -3,13 +3,14 @@
 using namespace std;
 
 const int SIZE = 6;
-const int INF = 1000000000;
+//const int INF = 1000000000;
 
 void dijkstra(int a[SIZE][SIZE])
 {
   queue<int> Queue;
   int distance[SIZE]; // масив найкоротших шляхів 
   bool vertex[SIZE]; // массив міток (чи відвідана дана вершина?)
+  bool nodes[SIZE]; //відмічає виявлені (додані в чергу) вершини
   
   int temp; // для временного хранения пути
   int minindex, dist;
@@ -17,11 +18,12 @@ void dijkstra(int a[SIZE][SIZE])
   for (i = 0; i<SIZE; i++) {
     distance[i] = INF; 
     vertex[i] = 0;
+    nodes[i] = 0;
   }
   
   Queue.push(0); // поміщаємо в чергу першу вершину
   
-  d[0] = 0;
+  //d[0] = 0;
   
   while (!Queue.empty())
   {
@@ -30,13 +32,16 @@ void dijkstra(int a[SIZE][SIZE])
     vertex[node] = 1; // відмічаємо її як таку, що віввідана
     for (int j = 0; j < 7; j++)
     {
-      if (mas[node][j] && nodes[j] == 0)
-      { // якщо в
-        Queue.push(j); // добавляем ее в очередь
-        nodes[j] = 1; // отмечаем вершину как обнаруженную
-        e.begin = node; e.end = j;
-        Edges.push(e);
-        if (node == req) break;
+      if (mas[node][j]!=0 && vertex[j] == 0)
+      { // якщо в нас є ребро і вершина не відвідана
+        
+         if (!nodes[j])
+         {
+        Queue.push(j); 
+        nodes[j] = 1;
+         } //якщо вершина не виявлена, додаємо в чергу і відмічаємо як виявлену
+        
+        
       }
     }
     cout << node + 1 << endl; // выводим номер вершины
