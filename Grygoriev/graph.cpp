@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include <iostream>
 #include <queue>
 using namespace std;
@@ -68,4 +69,7 @@ int main ()
   
   dijkstra(a); 
   return 0;
+  
+  int pause;
+  cin>>pause;
 }
