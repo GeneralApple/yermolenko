@@ -7,8 +7,8 @@ const int INF = 1000000000;
 void dijkstra(int a[SIZE][SIZE])
 {
 
-  int distance[SIZE]; // массив найденых кратчайших путей, индексы - вершины графа
-  bool vertex[SIZE]; // массив меток
+  int distance[SIZE]; // масив найкоротших шляхів 
+  bool vertex[SIZE]; // массив міток (чи відвідана дана вершина)?
   
   int temp; // для временного хранения пути
   int minindex, dist;
