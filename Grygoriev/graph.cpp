@@ -3,7 +3,7 @@
 using namespace std;
 
 const int SIZE = 6;
-//const int INF = 1000000000;
+const int INF = 1000000000;
 
 void dijkstra(int a[SIZE][SIZE])
 {
@@ -20,10 +20,10 @@ void dijkstra(int a[SIZE][SIZE])
     vertex[i] = 0;
     nodes[i] = 0;
   }
-  
+  distance[0] = 0;  
   Queue.push(0); // поміщаємо в чергу першу вершину
   
-  //d[0] = 0;
+  
   
   while (!Queue.empty())
   {
@@ -32,7 +32,7 @@ void dijkstra(int a[SIZE][SIZE])
     vertex[node] = 1; // відмічаємо її як таку, що віввідана
     for (int j = 0; j < 7; j++)
     {
-      if (mas[node][j]!=0 && vertex[j] == 0)
+      if (a[node][j]!=0 && vertex[j] == 0)
       { // якщо в нас є ребро і вершина не відвідана
         
          if (!nodes[j])
@@ -41,6 +41,9 @@ void dijkstra(int a[SIZE][SIZE])
         nodes[j] = 1;
          } //якщо вершина не виявлена, додаємо в чергу і відмічаємо як виявлену
         
+      
+        if (distance[node]+a[node][j] < distance[j]) distance[j] = distance[node]+a[node][j];;
+       
         
       }
     }
@@ -50,7 +53,7 @@ void dijkstra(int a[SIZE][SIZE])
   do
   { // исполнение алгоритма 
     minindex = INF;
-    dist = INF;
+    
     for (int i = 0; i < SIZE; i++) // поиск ближайшей вершины к данной и непройденной до этого
     {
       if ((vertex[i] == 1) && (distance[i]<dist)) 
