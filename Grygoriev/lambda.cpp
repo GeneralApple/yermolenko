@@ -20,8 +20,8 @@ int main()
 	}
 
 	for_each(arr, arr + 10, [rnd0](int n) {
-		unsigned long int rnd = rnd0 * 1664525*(i+1) + 1013904223UL*(i+1);
-		cout << 1+rnd]%100 << endl;
+		unsigned long int rnd = rnd0 * 1664525*(n+1) + 1013904223UL*(n+1);
+		cout << 1+rnd%100 << endl;
 	});
 
 	system("pause");
