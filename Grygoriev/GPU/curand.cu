@@ -13,7 +13,7 @@ __global__ void init(unsigned int seed, curandState_t* states) {
               blockIdx.x*blockDim.x+threadIdx.x, /* the sequence number should be different for each core (unless you want all
                              cores to get the same sequence of numbers for some reason - use thread id! */
               0, /* the offset is how much extra we advance in the sequence for each call, can be 0 */
-              &states[blockIdx.x]);
+              &states[blockIdx.x*blockDim.x+threadIdx.x]);
 }
 __global__ void Random(curandState_t* states, unsigned int *c)
 {
