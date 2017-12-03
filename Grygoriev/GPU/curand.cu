@@ -30,7 +30,7 @@ int main(void)
   
   int N = 1000000;
   
-   init<<<1000/1000, 1000>>>(time(0), states);
+   init<<<N/1000, 1000>>>(time(0), states);
   
   
   int *y, *d_y;
