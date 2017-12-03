@@ -27,7 +27,9 @@ int main()
 	{
 	int result = count_if(arr, arr + 100000, [j](int n) {
 		return j<=n && n< j+ 1000;
-	});
+		});
+		cout << result;<<endl
+	}
 
 		system("pause");
 
