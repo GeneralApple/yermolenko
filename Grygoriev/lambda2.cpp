@@ -26,8 +26,8 @@ int main()
 
 	for (int j = 0; j < 10; j++)
 	{
-		int result = count_if(arr, arr + 1000, [j,arr](int n) {
-			return 10*j <= arr[n] && arr[n] < 10*(j+1);
+		int result = count_if(arr, arr + 1000, [j](int n) {
+			return 10*j < n && n <= 10*(j+1);
 		});
 		cout << result << "     ";
 	}
