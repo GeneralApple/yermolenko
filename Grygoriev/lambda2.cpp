@@ -3,6 +3,7 @@
 #include <ctime>
 #include <cstdlib>
 #include <cmath>
+#include <algorithm>
 
 
 using namespace std;
@@ -14,24 +15,24 @@ int main()
 	unsigned long int rnd = 1 + rand() % 100;
 	cout << rnd << endl;
 
-	unsigned long int arr[100000];
+	unsigned long int arr[1000];
 
-		for (int i = 0; i<100000; i++)
-		{
-			rnd = rnd * 1664525 + 1013904223UL;
-			arr[i] = 1 + rnd % 100;
-			//cout << 1 + rnd % 100 << endl;
-		}
-	
-	for(int j = 0; j < 100; j++)
+	for (int i = 0; i<1000; i++)
 	{
-	int result = count_if(arr, arr + 100000, [j](int n) {
-		return j<=n && n< j+ 1000;
-		});
-		cout << result;<<endl
+		rnd = rnd * 1664525 + 1013904223UL;
+		arr[i] = 1 + rnd % 100;
+		//cout << 1 + rnd % 100 << endl;
 	}
 
-		system("pause");
+	for (int j = 0; j < 10; j++)
+	{
+		int result = count_if(arr, arr + 1000, [j,arr](int n) {
+			return 10*j <= arr[n] && arr[n] < 10*(j+1);
+		});
+		cout << result << "     ";
+	}
+
+	system("pause");
 
 	return 0;
 }
