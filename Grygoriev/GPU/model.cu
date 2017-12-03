@@ -29,7 +29,7 @@ double h = 100;
   
    cudaMemcpy(dN, &N, sizeof(int), cudaMemcpyHostToDevice);
    cudaMemcpy(dmu, &mu, sizeof(double), cudaMemcpyHostToDevice);
-     cudaMemcpy(dh, &h, sizeof(double), cudaMemcpyHostToDevice);
+   cudaMemcpy(dh, &h, sizeof(double), cudaMemcpyHostToDevice);
   
 
 
