@@ -23,8 +23,8 @@ int N = 1000;
   y = (int*)malloc(N*sizeof(int));
   cudaMalloc((void**)&d_y, N*sizeof(int));
   
-  srand(time(0));
-	int rnd0 = 1 + rand() % 100;
+ 
+	int rnd0 = 1 + time(0) % 100;
   
   int *d_rnd0;
 cudaMalloc((void**)&d_rnd0, sizeof(int));
