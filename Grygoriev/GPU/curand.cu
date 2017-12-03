@@ -1,7 +1,9 @@
+#include <unistd.h>
 #include <stdio.h>
 #include <cuda.h>
 #include <curand.h>
 #include <curand_kernel.h>
+#include <iostream>
 
 
 __global__ void init(unsigned int seed, curandState_t* states) {
@@ -25,13 +27,17 @@ int main(void)
   
    curandState_t* states;
   cudaMalloc((void**) &states, N * sizeof(curandState_t));
-   init<<<(N+255)/256, 256>>>(time(0), states);
+  
   int N = 1000000;
+  
+   init<<<1000/1000, 1000>>>(time(0), states);
+  
+  
   int *y, *d_y;
   
   y = (int*)malloc(N*sizeof(int));
 
-  cudaMalloc(&d_y, N*sizeof(int));
+  cudaMalloc((void**) &d_y, N*sizeof(int));
   
 
 
@@ -40,18 +46,28 @@ int main(void)
   }
   //cudaMemcpy(d_y, y, N*sizeof(int), cudaMemcpyHostToDevice);
 
-   Random<<<(N+255)/256, 256>>>(d_y);
+   Random<<<(1000, 1000>>>(states,d_y);
 
   cudaMemcpy(y, d_y, N*sizeof(int), cudaMemcpyDeviceToHost);
 
-  //int maxError = 0;
-  for (int i = 0; i < N; i++)
+ 
+ 
+	for (int i = 0; i < N; i++)
   {
-   // maxError = max(maxError, abs(y[i]-4));
-   printf("Rand is: %d\n", y[i]);
+   
+   cout<<y[i]<<endl;
   }
-  //printf("Max error: %d  %d\n", maxError, N);
+	
+/*for(int j = 0;j<1000;j++)
+{ int n = 0;
+ 	for(int k = 0; k<N;k++){
+		if(y[k]>1000*j && y[k]<=1000*(j+1)) n++ }
+ cout<<n<<endl;
+}*/
+  
 
   cudaFree(d_y);
   free(y);
+             
+   return 0;
 } 
