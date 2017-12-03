@@ -6,9 +6,14 @@
 #include <cmath>
 #include <cstdlib>
 
-#define pi    3.1416
+//#define pi    3.1416
 using namespace std;
 
+__global__ void setup_kernel ( curandState * state, unsigned long seed )
+{
+    unsigned int id = blockIdx.x*blockDim.x+threadIdx.x;
+    curand_init ( seed, id, 0, &state[id] );
+}
 
 
 
@@ -38,8 +43,12 @@ double h = 100;
   double pos[N];
   double *dpos;
  
- cudaMalloc((void**) &d_y, N*sizeof(int));
+ cudaMalloc((void**) &dpos, N*sizeof(int));
  
+ curandState* devStates;
+ cudaMalloc ( &devStates, N*sizeof( curandState ) );
+ 
+setup_kernel <<< N/1000, 1000 >>> ( devStates,unsigned(time(NULL)) );
  
 
 
