@@ -10,6 +10,8 @@
 using namespace std;
 
 
+
+
 int main() {
 
 int N;
@@ -33,8 +35,11 @@ double h = 100;
   
 
 
-  
-
-//double position[N];
+  double pos[N];
+  double *dpos;
+ 
+ cudaMalloc((void**) &d_y, N*sizeof(int));
+ 
+ 
 
 
