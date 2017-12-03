@@ -14,14 +14,14 @@ int main()
 	cout << rnd0;
 	int arr[10];
 
-	for (int i = 0; i<100; i++)
+	for (int i = 0; i<10; i++)
 	{
 		arr[i] = i;
 	}
 
-	for_each(arr, arr + 100, [rnd0](int n) {
-		unsigned long int rnd = 1+ (rnd0* (1664525 << n) + 1013904223UL)%100;
-		cout << rnd << endl;
+	for_each(arr, arr + 10, [rnd0](int n) {
+		unsigned long int rnd = rnd0 * 1664525*(i+1) + 1013904223UL*(i+1);
+		cout << 1+rnd]%100 << endl;
 	});
 
 	system("pause");
