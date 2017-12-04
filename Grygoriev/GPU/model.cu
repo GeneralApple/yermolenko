@@ -52,9 +52,23 @@ int Theta = 0; //напрям руху частинки
     
 while (y<d)
 {
+  l = expo(mu, globalState, id);
     
     
+ y = y + l*cos(Theta);
+ x = x + l*sin(Theta);
     
+    if(y<0)
+{x = h*10;
+break;}
+    
+    
+    if(x<-h) break;
+
+if(y>h) break;
+    
+    
+    dTh = generate(globalState, id)*(4*pi)-(2*pi);
     
 int main() {
 
