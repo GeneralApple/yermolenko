@@ -15,12 +15,48 @@ __global__ void setup_kernel ( curandState * state, unsigned long seed )
     curand_init ( seed, id, 0, &state[id] );
 }
 
+__device__ float expo(double mu, curandState* globalState)
+{
+  do{ double u = generate
+
+__device__ float generate( curandState* globalState, int ind ) 
+{
+    //int ind = threadIdx.x;
+    curandState localState = globalState[ind];
+    float RANDOM = curand_uniform( &localState );
+    globalState[ind] = localState;
+    return RANDOM;
+}
+
+__global__ void model(double *pos, double *dmu, double *dh, curandState* globalState)
+{
+    double mu = *dmu;
+   double  h = *dh;
+    
+    
 
 
+double x=0, y=0; //початкові координати частинки
+    
+    double l; //відстань прольоту частинки між актами взаємодії
+
+//int n = 0;
+
+int Theta = 0; //напрям руху частинки
+    
+while (y<d)
+{
+    
+    
+    
+    
 int main() {
 
 int N;
 cin >> N;
+    
+  double d;
+    cin >> d;
  
 double mu=0.07;
 
@@ -28,20 +64,22 @@ double h = 100;
   
   int *dN;
   
-  double *dmu, *dh;
+  double *dmu, *dh, *dd;
   
-  cudaMalloc((void**)&dN, sizeof(int));
+  //cudaMalloc((void**)&dN, sizeof(int));
   cudaMalloc((void**)&dmu, sizeof(double));
   cudaMalloc((void**)&dh, sizeof(double));
+    cudaMalloc((void**)&dd, sizeof(double));
   
-   cudaMemcpy(dN, &N, sizeof(int), cudaMemcpyHostToDevice);
+   //cudaMemcpy(dN, &N, sizeof(int), cudaMemcpyHostToDevice);
    cudaMemcpy(dmu, &mu, sizeof(double), cudaMemcpyHostToDevice);
    cudaMemcpy(dh, &h, sizeof(double), cudaMemcpyHostToDevice);
+    cudaMemcpy(dd, &d, sizeof(double), cudaMemcpyHostToDevice);
   
 
 
-  double pos[N];
-  double *dpos;
+  double xpos[N];
+  double *xdpos;
  
  cudaMalloc((void**) &dpos, N*sizeof(int));
  
