@@ -90,8 +90,106 @@ int main{
       
        if (a[node].dist+10 < a[node-1].dist) 
        {
-         a[node+1].dist = a[node].dist+10;
-         a[node+1].pointer = node + 1;
+         a[node-1].dist = a[node].dist+10;
+         a[node-1].pointer = node + 1;
        }
     }
+    
+
+     //хід вверх
+     if(node>4 && a[node-5].up) 
+    {
+        if (!vertex[node-5].nodes)
+          {
+          Queue.push(node-5); 
+          vertex[node-5].nodes = 1;
+         } //якщо вершина не виявлена, додаємо в чергу і відмічаємо як виявлену
+      
+       if (a[node].dist+10 < a[node-5].dist) 
+       {
+         a[node-5].dist = a[node].dist+10;
+         a[node-5].pointer = node + 1;
+       }
+    }
+    
+     //хід вниз
+     if(node<20 && a[node+5].up) 
+    {
+        if (!vertex[node+5].nodes)
+          {
+          Queue.push(node+5); 
+          vertex[node+5].nodes = 1;
+         } //якщо вершина не виявлена, додаємо в чергу і відмічаємо як виявлену
+      
+       if (a[node].dist+10 < a[node+5].dist) 
+       {
+         a[node+5].dist = a[node].dist+10;
+         a[node+5].pointer = node + 1;
+       }
+    }
+    
+    //хід по діагоналі - вверх і вліво
+     if(node>4 && node%5!=0 && a[node-6].up) 
+    {
+        if (!vertex[node-6].nodes)
+          {
+          Queue.push(node-6); 
+          vertex[node-6].nodes = 1;
+         } //якщо вершина не виявлена, додаємо в чергу і відмічаємо як виявлену
+      
+       if (a[node].dist+14 < a[node-6].dist) 
+       {
+         a[node-6].dist = a[node].dist+14;
+         a[node-6].pointer = node + 1;
+        
+       }
+    
+        //хід по діагоналі - вверх і вправо
+     if(node>4 && (node+1)%5  !=0 && a[node-4].up) 
+    {
+        if (!vertex[node-4].nodes)
+          {
+          Queue.push(node-4); 
+          vertex[node-4].nodes = 1;
+         } //якщо вершина не виявлена, додаємо в чергу і відмічаємо як виявлену
+      
+       if (a[node].dist+14 < a[node-4].dist) 
+       {
+         a[node-4].dist = a[node].dist+14;
+         a[node-4].pointer = node + 1;
+        
+       }
+    }
+       
+   //хід по діагоналі - вниз і вліво
+     if(node<20 && node%5!=0 && a[node+4].up) 
+    {
+        if (!vertex[node+4].nodes)
+          {
+          Queue.push(node+4); 
+          vertex[node+4].nodes = 1;
+         } //якщо вершина не виявлена, додаємо в чергу і відмічаємо як виявлену
+      
+       if (a[node].dist+14 < a[node+4].dist) 
+       {
+         a[node+4].dist = a[node].dist+14;
+         a[node+4].pointer = node + 1;
+        
+       }   
+       
+       //хід по діагоналі - вниз і вправо
+     if(node<20 && (node+1)%5  !=0 && a[node+6].up) 
+    {
+        if (!vertex[node+6].nodes)
+          {
+          Queue.push(node+6); 
+          vertex[node+6].nodes = 1;
+         } //якщо вершина не виявлена, додаємо в чергу і відмічаємо як виявлену
+      
+       if (a[node].dist+14 < a[node+6].dist) 
+       {
+         a[node+6].dist = a[node].dist+14;
+         a[node+6].pointer = node + 1;
+        
+       }   
     
