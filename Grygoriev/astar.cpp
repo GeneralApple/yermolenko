@@ -29,7 +29,7 @@ int main{
   for(int i = 0; i<25; i++) a[i].y = i/5 + 1;
   
   for(int i = 0; i<25; i++) a[i].up = 1;
-  for(int i = 0; i<25; i++) a[i].vertex = 0;
+  for(int i = 0; i<25; i++) a[i].vertex = 1;
   for(int i = 0; i<25; i++) a[i].dist = INF;
   for(int i = 0; i<25; i++) a[i].nodes = 0;
   
@@ -46,7 +46,7 @@ int main{
    init--;
   
   a[init].pointer = 0;
-  a[init].vertex = 1;
+  a[init].vertex = 0;
   
    a[init].dist = 0;
   
@@ -61,10 +61,10 @@ int main{
   {
     int node = Queue.front(); 
     Queue.pop();
-    a[node].vertex = 1; // відмічаємо її як таку, що віввідана
+    a[node].vertex = 0; // відмічаємо її як таку, що віввідана
     
     //хід вправо
-    if((node+1)%5  !=0 && a[node+1].up) 
+    if((node+1)%5  !=0 && a[node+1].up && a[node+1].vertex) 
     {
         if (!vertex[node+1].nodes)
           {
@@ -80,7 +80,7 @@ int main{
     }
     
     //хід вліво
-     if(node%5!=0 && a[node-1].up) 
+     if(node%5!=0 && a[node-1].up && a[node-1].vertex) 
     {
         if (!vertex[node-1].nodes)
           {
@@ -97,7 +97,7 @@ int main{
     
 
      //хід вверх
-     if(node>4 && a[node-5].up) 
+     if(node>4 && a[node-5].up && a[node-5].vertex) 
     {
         if (!vertex[node-5].nodes)
           {
@@ -113,7 +113,7 @@ int main{
     }
     
      //хід вниз
-     if(node<20 && a[node+5].up) 
+     if(node<20 && a[node+5].up && a[node+5].vertex) 
     {
         if (!vertex[node+5].nodes)
           {
@@ -129,7 +129,7 @@ int main{
     }
     
     //хід по діагоналі - вверх і вліво
-     if(node>4 && node%5!=0 && a[node-6].up) 
+     if(node>4 && node%5!=0 && a[node-6].up  && a[node-6].vertex) 
     {
         if (!vertex[node-6].nodes)
           {
@@ -143,9 +143,10 @@ int main{
          a[node-6].pointer = node + 1;
         
        }
+     }
     
         //хід по діагоналі - вверх і вправо
-     if(node>4 && (node+1)%5  !=0 && a[node-4].up) 
+     if(node>4 && (node+1)%5  !=0 && a[node-4].up && a[node-4].vertex ) 
     {
         if (!vertex[node-4].nodes)
           {
@@ -162,7 +163,7 @@ int main{
     }
        
    //хід по діагоналі - вниз і вліво
-     if(node<20 && node%5!=0 && a[node+4].up) 
+     if(node<20 && node%5!=0 && a[node+4].up  && a[node+4].vertex) 
     {
         if (!vertex[node+4].nodes)
           {
@@ -176,9 +177,10 @@ int main{
          a[node+4].pointer = node + 1;
         
        }   
-       
+     }
+    
        //хід по діагоналі - вниз і вправо
-     if(node<20 && (node+1)%5  !=0 && a[node+6].up) 
+     if(node<20 && (node+1)%5  !=0 && a[node+6].up  && a[node+6].vertex) 
     {
         if (!vertex[node+6].nodes)
           {
@@ -192,4 +194,4 @@ int main{
          a[node+6].pointer = node + 1;
         
        }   
-    
+     }
