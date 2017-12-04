@@ -1,0 +1,146 @@
+\hypertarget{classvvector}{}\section{vvector$<$ type $>$ Class Template Reference}
+\label{classvvector}\index{vvector$<$ type $>$@{vvector$<$ type $>$}}
+
+
+Custom class \char`\"{}vvector\char`\"{}.  
+
+
+
+
+{\ttfamily \#include $<$vvector.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classvvector_ab4b7e31d3baef30147eec4b80a13b26a}{vvector} ()
+\begin{DoxyCompactList}\small\item\em Constructor of vvector. \end{DoxyCompactList}\item 
+\hyperlink{classvvector_a01d5bcd372c6823a67add01d359dc8b3}{$\sim$vvector} ()
+\begin{DoxyCompactList}\small\item\em Destructor of vvector. \end{DoxyCompactList}\item 
+void \hyperlink{classvvector_a5c8078dbd30a0282fced5d7d252dac7f}{add} (type item)
+\begin{DoxyCompactList}\small\item\em Method \hyperlink{classvvector_a5c8078dbd30a0282fced5d7d252dac7f}{add()};. \end{DoxyCompactList}\item 
+type \hyperlink{classvvector_a1fbc380bcfd3b101886e571dbecf0c87}{pull\+\_\+last} ()
+\begin{DoxyCompactList}\small\item\em Method remove\+\_\+last(). \end{DoxyCompactList}\item 
+int \hyperlink{classvvector_ad7e9467e6de94a74f39a512a5ce9a08f}{size} ()
+\begin{DoxyCompactList}\small\item\em Method \hyperlink{classvvector_ad7e9467e6de94a74f39a512a5ce9a08f}{size()}. \end{DoxyCompactList}\item 
+type \hyperlink{classvvector_a6df759ba66353840d0b9f915a7c6338c}{get\+\_\+index\+\_\+elem} (int index)
+\begin{DoxyCompactList}\small\item\em Method \hyperlink{classvvector_a6df759ba66353840d0b9f915a7c6338c}{get\+\_\+index\+\_\+elem()}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class type$>$\newline
+class vvector$<$ type $>$}
+
+Custom class \char`\"{}vvector\char`\"{}. 
+
+Implementation of std\+::vector \begin{DoxyAuthor}{Author}
+Vadym Denysenko 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0.\+0
+\end{DoxyVersion}
+Class \char`\"{}vvector\char`\"{} consist basic methods such as add, size, pull\+\_\+last and get\+\_\+index\+\_\+elem.
+
+\begin{DoxyReturn}{Returns}
+class vvector 
+\end{DoxyReturn}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classvvector_ab4b7e31d3baef30147eec4b80a13b26a}\label{classvvector_ab4b7e31d3baef30147eec4b80a13b26a}} 
+\index{vvector@{vvector}!vvector@{vvector}}
+\index{vvector@{vvector}!vvector@{vvector}}
+\subsubsection{\texorpdfstring{vvector()}{vvector()}}
+{\footnotesize\ttfamily template$<$class type $>$ \\
+\hyperlink{classvvector}{vvector}$<$ type $>$\+::\hyperlink{classvvector}{vvector} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructor of vvector. 
+
+Initialization constructor.
+
+Creates vvector with initial size. \mbox{\Hypertarget{classvvector_a01d5bcd372c6823a67add01d359dc8b3}\label{classvvector_a01d5bcd372c6823a67add01d359dc8b3}} 
+\index{vvector@{vvector}!````~vvector@{$\sim$vvector}}
+\index{````~vvector@{$\sim$vvector}!vvector@{vvector}}
+\subsubsection{\texorpdfstring{$\sim$vvector()}{~vvector()}}
+{\footnotesize\ttfamily template$<$class type $>$ \\
+\hyperlink{classvvector}{vvector}$<$ type $>$\+::$\sim$\hyperlink{classvvector}{vvector} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor of vvector. 
+
+Initialization destructor. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classvvector_a5c8078dbd30a0282fced5d7d252dac7f}\label{classvvector_a5c8078dbd30a0282fced5d7d252dac7f}} 
+\index{vvector@{vvector}!add@{add}}
+\index{add@{add}!vvector@{vvector}}
+\subsubsection{\texorpdfstring{add()}{add()}}
+{\footnotesize\ttfamily template$<$class type $>$ \\
+void \hyperlink{classvvector}{vvector}$<$ type $>$\+::add (\begin{DoxyParamCaption}\item[{type}]{item }\end{DoxyParamCaption})}
+
+
+
+Method \hyperlink{classvvector_a5c8078dbd30a0282fced5d7d252dac7f}{add()};. 
+
+Initialization of method \hyperlink{classvvector_a5c8078dbd30a0282fced5d7d252dac7f}{add()}. 
+\begin{DoxyParams}{Parameters}
+{\em item} & is an element.\\
+\hline
+\end{DoxyParams}
+Add element in the end of vvector. Calls resize() method, if counter out of range elementp array. \mbox{\Hypertarget{classvvector_a6df759ba66353840d0b9f915a7c6338c}\label{classvvector_a6df759ba66353840d0b9f915a7c6338c}} 
+\index{vvector@{vvector}!get\+\_\+index\+\_\+elem@{get\+\_\+index\+\_\+elem}}
+\index{get\+\_\+index\+\_\+elem@{get\+\_\+index\+\_\+elem}!vvector@{vvector}}
+\subsubsection{\texorpdfstring{get\+\_\+index\+\_\+elem()}{get\_index\_elem()}}
+{\footnotesize\ttfamily template$<$class type $>$ \\
+type \hyperlink{classvvector}{vvector}$<$ type $>$\+::get\+\_\+index\+\_\+elem (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+
+
+Method \hyperlink{classvvector_a6df759ba66353840d0b9f915a7c6338c}{get\+\_\+index\+\_\+elem()}. 
+
+Initialization of method \hyperlink{classvvector_a6df759ba66353840d0b9f915a7c6338c}{get\+\_\+index\+\_\+elem()}.
+
+Returns last element of vvector at this index. \begin{DoxyReturn}{Returns}
+element or N\+U\+LL if index out of range 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classvvector_a1fbc380bcfd3b101886e571dbecf0c87}\label{classvvector_a1fbc380bcfd3b101886e571dbecf0c87}} 
+\index{vvector@{vvector}!pull\+\_\+last@{pull\+\_\+last}}
+\index{pull\+\_\+last@{pull\+\_\+last}!vvector@{vvector}}
+\subsubsection{\texorpdfstring{pull\+\_\+last()}{pull\_last()}}
+{\footnotesize\ttfamily template$<$class type $>$ \\
+type \hyperlink{classvvector}{vvector}$<$ type $>$\+::pull\+\_\+last (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Method remove\+\_\+last(). 
+
+Initialization of method \hyperlink{classvvector_a1fbc380bcfd3b101886e571dbecf0c87}{pull\+\_\+last()}.
+
+Returns last element of vvector and remove this element. \begin{DoxyReturn}{Returns}
+element 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classvvector_ad7e9467e6de94a74f39a512a5ce9a08f}\label{classvvector_ad7e9467e6de94a74f39a512a5ce9a08f}} 
+\index{vvector@{vvector}!size@{size}}
+\index{size@{size}!vvector@{vvector}}
+\subsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily template$<$class type $>$ \\
+int \hyperlink{classvvector}{vvector}$<$ type $>$\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Method \hyperlink{classvvector_ad7e9467e6de94a74f39a512a5ce9a08f}{size()}. 
+
+Initialization of method \hyperlink{classvvector_ad7e9467e6de94a74f39a512a5ce9a08f}{size()}.
+
+Returns current number of elements in the vvector.
+
+\begin{DoxyReturn}{Returns}
+counter. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+vvector.\+h\end{DoxyCompactItemize}

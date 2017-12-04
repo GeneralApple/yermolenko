@@ -1,0 +1,1 @@
+[Here](http://pages.cs.wisc.edu/~paton/readings/Red-Black-Trees/) is proof that insertion into red black tree is guaratneed to have logN complexity in any case.
