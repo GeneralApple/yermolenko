@@ -19,6 +19,7 @@ struct game
 }
 
 int main{
+  queue<int> Queue;
   
   game a[25];
   
@@ -29,6 +30,9 @@ int main{
   
   for(int i = 0; i<25; i++) a[i].up = 1;
   for(int i = 0; i<25; i++) a[i].vertex = 0;
+  for(int i = 0; i<25; i++) a[i].dist = INF;
+  for(int i = 0; i<25; i++) a[i].nodes = 0;
+  
   
   //малюємо стіни
   a[8].up = 0;
@@ -47,5 +51,20 @@ int main{
    a[init].dist = 0;
   
   
+    cout << "Enter finish point:";
+    cin >> end;
+   end--;
  
- 
+    Queue.push(init); // поміщаємо в чергу першу вершину
+    
+  while (!Queue.empty())
+  {
+    int node = Queue.front(); 
+    Queue.pop();
+    a[node].vertex = 1; // відмічаємо її як таку, що віввідана
+    
+    //хід вправо
+    if((node+1)%5  !=0 && a[node].up) 
+    {
+        if (!vertex[node+1].nodes)
+    
