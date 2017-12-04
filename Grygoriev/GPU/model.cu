@@ -6,7 +6,7 @@
 #include <cmath>
 #include <cstdlib>
 
-//#define pi    3.1416
+
 using namespace std;
 
 __global__ void setup_kernel ( curandState * state, unsigned long seed )
@@ -39,7 +39,7 @@ __global__ void model(double *pos, double *dmu, double *dh, curandState* globalS
     double mu = *dmu;
    double  h = *dh;
     
-    
+    double pi = 3.1416;
 
 
 double x=0, y=0; //початкові координати частинки
@@ -77,16 +77,21 @@ if(y>h) break;
     
     pos[id] = x;
 }
+
+
+
+
+
     
 int main() {
 
-int N;
-cin >> N;
+int N = 1000000; //кількість частинок
+//cin >> N;
     
-  double d;
+  double d; //товщина пластинки
     cin >> d;
  
-double mu=0.07;
+double mu=0.07; //довжина вільного пробігу
 
 double h = 100;
   
