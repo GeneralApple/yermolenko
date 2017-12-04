@@ -64,7 +64,34 @@ int main{
     a[node].vertex = 1; // відмічаємо її як таку, що віввідана
     
     //хід вправо
-    if((node+1)%5  !=0 && a[node].up) 
+    if((node+1)%5  !=0 && a[node+1].up) 
     {
         if (!vertex[node+1].nodes)
+          {
+          Queue.push(node+1); 
+          vertex[node+1].nodes = 1;
+         } //якщо вершина не виявлена, додаємо в чергу і відмічаємо як виявлену
+      
+       if (a[node].dist+10 < a[node+1].dist) 
+       {
+         a[node+1].dist = a[node].dist+10;
+         a[node+1].pointer = node + 1;
+       }
+    }
+    
+    //хід вліво
+     if(node%5!=0 && a[node-1].up) 
+    {
+        if (!vertex[node-1].nodes)
+          {
+          Queue.push(node-1); 
+          vertex[node-1].nodes = 1;
+         } //якщо вершина не виявлена, додаємо в чергу і відмічаємо як виявлену
+      
+       if (a[node].dist+10 < a[node-1].dist) 
+       {
+         a[node+1].dist = a[node].dist+10;
+         a[node+1].pointer = node + 1;
+       }
+    }
     
