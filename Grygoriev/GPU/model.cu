@@ -109,12 +109,23 @@ double h = 100;
   double xpos[N];
   double *pos;
  
- cudaMalloc((void**) &pos, N*sizeof(int));
+ cudaMalloc((void**) &pos, N*sizeof(double));
  
  curandState* devStates;
  cudaMalloc ( &devStates, N*sizeof( curandState ) );
  
 setup_kernel <<< N/1000, 1000 >>> ( devStates,unsigned(time(NULL)) );
  
+   model <<< N/1000, 1000 >>> (*pos,*dmu,*dh, devStates)
+       
+      cudaMemcpy(xpos, pos, N*sizeof(double), cudaMemcpyDeviceToHost);	
+    
+   for (int j = 0; j<20; j++)
+   {  
+       for(int k = 0; k<N;k++){
+       int n = 0;
+      if( h(0.1*j -1)<=xpos[k] && h(0.1*j -0.9) > xpos[k]) n++;
+       cout<<n<<endl; }
+   }
 
-
+return 0;}
