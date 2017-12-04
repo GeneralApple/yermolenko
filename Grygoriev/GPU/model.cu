@@ -48,7 +48,9 @@ double x=0, y=0; //початкові координати частинки
 
 //int n = 0;
 
-int Theta = 0; //напрям руху частинки
+double Theta = 0; //напрям руху частинки
+    
+    double dTh;
     
 while (y<d)
 {
@@ -69,6 +71,12 @@ if(y>h) break;
     
     
     dTh = generate(globalState, id)*(4*pi)-(2*pi);
+
+    Theta = Theta + dTh;
+}
+    
+    pos[id] = x;
+}
     
 int main() {
 
@@ -99,9 +107,9 @@ double h = 100;
 
 
   double xpos[N];
-  double *xdpos;
+  double *pos;
  
- cudaMalloc((void**) &dpos, N*sizeof(int));
+ cudaMalloc((void**) &pos, N*sizeof(int));
  
  curandState* devStates;
  cudaMalloc ( &devStates, N*sizeof( curandState ) );
