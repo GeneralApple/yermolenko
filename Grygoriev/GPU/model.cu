@@ -15,9 +15,12 @@ __global__ void setup_kernel ( curandState * state, unsigned long seed )
     curand_init ( seed, id, 0, &state[id] );
 }
 
-__device__ float expo(double mu, curandState* globalState)
+__device__ float expo(double mu, curandState* globalState, int ind)
 {
-  do{ double u = generate
+  do{ double u = generate(globalState, ind);}
+    while(u!=0);
+    
+  return -log(1- u) / mu;}
 
 __device__ float generate( curandState* globalState, int ind ) 
 {
@@ -30,6 +33,9 @@ __device__ float generate( curandState* globalState, int ind )
 
 __global__ void model(double *pos, double *dmu, double *dh, curandState* globalState)
 {
+    
+     unsigned int id = blockIdx.x*blockDim.x+threadIdx.x;
+    
     double mu = *dmu;
    double  h = *dh;
     
