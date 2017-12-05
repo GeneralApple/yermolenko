@@ -61,7 +61,7 @@ int main() {
 		int node = Queue.front();
 		Queue.pop();
 		a[node].vertex = 0; // відмічаємо її як таку, що віввідана
-	}
+
 
 							//хід вправо
 		if ((node + 1) % 5 != 0 && a[node + 1].up && a[node + 1].vertex)
@@ -195,6 +195,8 @@ int main() {
 
 			}
 		}
+
+	}
 
 		if (a[end].vertex)
 		{
