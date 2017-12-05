@@ -199,15 +199,34 @@ int main{
     
     if(a[end].vertex)
     { 
-      cout<<"Error. The path to finish point is blocked.");
+      cout<<"Error. The path to finish point is blocked.";
       return 0;
     }
     
     
 
     int tmp = end;
+    stack<int> st;
     
-    cout<<"Distance - "<<a[end].dist;
+    cout<<"Distance - "<<a[end].dist<<endl;
     
+    st.push(end+1);
+    
+    //записуємо елементи в стек
     while(a[tmp].pointer)
     {
+      st.push(a[tmp].pointer);
+      tmp = a[tmp].pointer - 1;
+    }
+    
+    //зчитуємо елементи зі стеку
+    while(!st.empty)
+    { 
+      cout<<st.top()<<"-";
+      st.pop();
+    }
+    
+    system("pause");
+    
+    return 0;}
+      
