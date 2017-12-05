@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include <iostream>
 #include <queue>
+#include <stack>
 using namespace std;
 
 const int INF = 1000000000;
@@ -66,10 +67,10 @@ int main{
     //хід вправо
     if((node+1)%5  !=0 && a[node+1].up && a[node+1].vertex) 
     {
-        if (!vertex[node+1].nodes)
+        if (!a[node+1].nodes)
           {
           Queue.push(node+1); 
-          vertex[node+1].nodes = 1;
+          a[node+1].nodes = 1;
          } //якщо вершина не виявлена, додаємо в чергу і відмічаємо як виявлену
       
        if (a[node].dist+10 < a[node+1].dist) 
@@ -82,10 +83,10 @@ int main{
     //хід вліво
      if(node%5!=0 && a[node-1].up && a[node-1].vertex) 
     {
-        if (!vertex[node-1].nodes)
+        if (!a[node-1].nodes)
           {
           Queue.push(node-1); 
-          vertex[node-1].nodes = 1;
+          a[node-1].nodes = 1;
          } //якщо вершина не виявлена, додаємо в чергу і відмічаємо як виявлену
       
        if (a[node].dist+10 < a[node-1].dist) 
@@ -99,10 +100,10 @@ int main{
      //хід вверх
      if(node>4 && a[node-5].up && a[node-5].vertex) 
     {
-        if (!vertex[node-5].nodes)
+        if (!a[node-5].nodes)
           {
           Queue.push(node-5); 
-          vertex[node-5].nodes = 1;
+          a[node-5].nodes = 1;
          } //якщо вершина не виявлена, додаємо в чергу і відмічаємо як виявлену
       
        if (a[node].dist+10 < a[node-5].dist) 
@@ -115,10 +116,10 @@ int main{
      //хід вниз
      if(node<20 && a[node+5].up && a[node+5].vertex) 
     {
-        if (!vertex[node+5].nodes)
+        if (!a[node+5].nodes)
           {
           Queue.push(node+5); 
-          vertex[node+5].nodes = 1;
+          a[node+5].nodes = 1;
          } //якщо вершина не виявлена, додаємо в чергу і відмічаємо як виявлену
       
        if (a[node].dist+10 < a[node+5].dist) 
@@ -131,10 +132,10 @@ int main{
     //хід по діагоналі - вверх і вліво
      if(node>4 && node%5!=0 && a[node-6].up  && a[node-6].vertex) 
     {
-        if (!vertex[node-6].nodes)
+        if (!a[node-6].nodes)
           {
           Queue.push(node-6); 
-          vertex[node-6].nodes = 1;
+          a[node-6].nodes = 1;
          } //якщо вершина не виявлена, додаємо в чергу і відмічаємо як виявлену
       
        if (a[node].dist+14 < a[node-6].dist) 
@@ -148,10 +149,10 @@ int main{
         //хід по діагоналі - вверх і вправо
      if(node>4 && (node+1)%5  !=0 && a[node-4].up && a[node-4].vertex ) 
     {
-        if (!vertex[node-4].nodes)
+        if (!a[node-4].nodes)
           {
           Queue.push(node-4); 
-          vertex[node-4].nodes = 1;
+          a[node-4].nodes = 1;
          } //якщо вершина не виявлена, додаємо в чергу і відмічаємо як виявлену
       
        if (a[node].dist+14 < a[node-4].dist) 
@@ -165,10 +166,10 @@ int main{
    //хід по діагоналі - вниз і вліво
      if(node<20 && node%5!=0 && a[node+4].up  && a[node+4].vertex) 
     {
-        if (!vertex[node+4].nodes)
+        if (!a[node+4].nodes)
           {
           Queue.push(node+4); 
-          vertex[node+4].nodes = 1;
+          a[node+4].nodes = 1;
          } //якщо вершина не виявлена, додаємо в чергу і відмічаємо як виявлену
       
        if (a[node].dist+14 < a[node+4].dist) 
@@ -182,10 +183,10 @@ int main{
        //хід по діагоналі - вниз і вправо
      if(node<20 && (node+1)%5  !=0 && a[node+6].up  && a[node+6].vertex) 
     {
-        if (!vertex[node+6].nodes)
+        if (!a[node+6].nodes)
           {
           Queue.push(node+6); 
-          vertex[node+6].nodes = 1;
+          a[node+6].nodes = 1;
          } //якщо вершина не виявлена, додаємо в чергу і відмічаємо як виявлену
       
        if (a[node].dist+14 < a[node+6].dist) 
@@ -195,3 +196,18 @@ int main{
         
        }   
      }
+    
+    if(a[end].vertex)
+    { 
+      cout<<"Error. The path to finish point is blocked.");
+      return 0;
+    }
+    
+    
+
+    int tmp = end;
+    
+    cout<<"Distance - "<<a[end].dist;
+    
+    while(a[tmp].pointer)
+    {
