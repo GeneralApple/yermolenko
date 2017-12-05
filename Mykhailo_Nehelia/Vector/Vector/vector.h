@@ -19,6 +19,7 @@ template <class type>
 class Vector {
     private:
         int length = 1; // number of elements
+        int size = 128; // number of elements
         type* elements; // pointer to elements  
     public:
         /*!
@@ -50,6 +51,12 @@ class Vector {
      * Initialization of method getElementByIndex().
      */
     type getElementByIndex(int index);
+    
+    
+    /*!
+     * Initialization of method resize().
+     */
+    void resize();
 };
 
 /*!
@@ -57,7 +64,7 @@ class Vector {
  */
 template <class type>
 Vector<type>::Vector() {
-    elements = new type[0];
+    elements = new type[size];
     length = 0;
 };
 /*!
@@ -78,6 +85,9 @@ Vector<type>::~Vector() {
  */
 template <class type>
 void Vector<type>::push(type item) {
+    if(length >= size)
+        resize();
+    
     elements[length] = item;
     length++;
 };
@@ -115,5 +125,27 @@ template <class type>
 int Vector<type>::getLength() {
     return length;
 };
+
+
+/*!
+ * @brief Method resize().
+ *
+ * Returns current number of elements in the vector.
+ *
+ * @return length.
+ */
+template <class type>
+void Vector<type>::resize() {
+    size *= 2;
+    type* temp = new type[size];
+    
+    for (int i = 0; i < length; i++) {
+        temp[i] = elements[i];
+    }
+    
+    delete[] elements;
+    elements = temp;
+};
+
 
 #endif /* vector_h */
