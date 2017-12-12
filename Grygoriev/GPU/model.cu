@@ -37,7 +37,7 @@ __device__ float expo(double mu, curandState* globalState, int ind)
         u = generate(globalState, ind);
     } while(u==1.0);
     
-    return -log(1- u) / mu;
+    return -log(1- u) * mu;
 }
 
 
