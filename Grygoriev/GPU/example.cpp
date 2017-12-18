@@ -19,7 +19,8 @@ int main() {
 
 	srand(time(0));
 
-	thread t(foo);
+	thread t1(foo);
+	thread t2(bar);
 
 		t.detach();
 
