@@ -5,24 +5,24 @@
 
 using namespace std;
 
-void foo
+void foo()
 {
-  for(int i=0; i<10; i++)
-  {
-  int rnd = 1 + rand()%100;
-    cout<<rnd<<" done"<<endl;
-  //  sleep(1)
-    }
- }
+	for (int i = 0; i<10; i++)
+	{
+		int rnd = 1 + rand() % 100;
+		cout << rnd << " done" << endl;
+		//  sleep(1)
+	}
+}
 
-int main(){
+int main() {
 
-srand(time(0));
+	srand(time(0));
 
-thread t(foo)
+	thread t(foo);
 
-t.detach;
+		t.detach();
 
-system("pause");
-return 0;
+	system("pause");
+	return 0;
 }
