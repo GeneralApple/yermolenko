@@ -9,7 +9,8 @@ void foo
 {
   for(int i=0; i<10; i++)
   {
-    cout<<i<<" done"<<endl;
+  int rnd = 1 + rand()%100;
+    cout<<rnd<<" done"<<endl;
   //  sleep(1)
     }
  }
