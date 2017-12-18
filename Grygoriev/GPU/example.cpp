@@ -10,7 +10,17 @@ void foo()
 	for (int i = 0; i<10; i++)
 	{
 		int rnd = 1 + rand() % 100;
-		cout << rnd << " done" << endl;
+		cout << "Foo" << rnd << endl;
+		//  sleep(1)
+	}
+}
+
+void bar()
+{
+	for (int i = 0; i<10; i++)
+	{
+		int rnd = 1 + rand() % 100;
+		cout << "Bar" << rnd << endl;
 		//  sleep(1)
 	}
 }
