@@ -20,7 +20,8 @@ double expo(double mu,int i)
 	return -log(1- u) / mu;
 };
 
-void model(int j){
+void model(int j)
+{
 	
 	double x=0, y=0; //початкові координати частинки
 	double l; //відстань прольоту частинки між актами взаємодії
@@ -44,10 +45,10 @@ void model(int j){
 	    if(y>h) break;
 	    dTh = ;
 	    Theta = Theta + dTh;
-	    n++;
+//	    n++;
 
 	}
-
+}
 
 
 
@@ -68,8 +69,11 @@ int main() {
 	//створити масив потоків
 	thread myThreads[N];
 	
-	for (int i=0; i<N; i++){
+	for (int i=0; i<N; i++)
+	{
 		myThreads[i] = thread(model, i);
+	};
+	
 	
 
 	system("pause");
