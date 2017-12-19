@@ -9,8 +9,8 @@ using namespace std;
 
 double random(int id)
 {	double r = (rand()* (1+1664524*id) + 1013904223UL*id)%RAND_MAX;
-	double r = rand() / (RAND_MAX + 1.0);
-	return rnd0 * (1+1664524*id) + 1013904223UL*id;
+	//double r = rand() / (RAND_MAX + 1.0);
+	return r/ (RAND_MAX + 1.0);;
 }
 
 void model(int j){
