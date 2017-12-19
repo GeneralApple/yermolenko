@@ -7,7 +7,12 @@
 
 using namespace std;
 
-void model(double d;
+double random()
+{
+	double r = rand() / (RAND_MAX + 1.0);
+}
+
+void model();
 
 
 int main() {
