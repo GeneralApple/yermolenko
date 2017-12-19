@@ -43,11 +43,12 @@ void model(int j)
 	    break;}
 	    if(x<-h) break;
 	    if(y>h) break;
-	    dTh = ;
+	    dTh = (random(j) *(4*pi)-(2*pi);;
 	    Theta = Theta + dTh;
 //	    n++;
-
 	}
+		   
+        xpos[j] = x;
 }
 
 
@@ -72,9 +73,20 @@ int main() {
 	for (int i=0; i<N; i++)
 	{
 		myThreads[i] = thread(model, i);
-	};
+	}
 	
+	for (int i=0; i<N; i++) myThreads[i].join();
 	
+	for (int j = 0; j<20; j++)
+{
+    int n = 0;
+    for(int k = 0; k<N;k++){
+    
+    if( h*(0.1*j -1)<=xpos[k] && h*(0.1*j -0.9) > xpos[k]) n++;
+     }
+cout<<n<<endl;
+}
+    
 
 	system("pause");
 	return 0;
