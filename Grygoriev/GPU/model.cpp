@@ -6,6 +6,7 @@
 //#include <unistd.h>
 
 #define N 1000
+#define pi 3.1416
 
 using namespace std;
 
