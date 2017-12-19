@@ -32,7 +32,7 @@ int main() {
 	thread t1(foo);
 	thread t2(bar);
 
-		t.detach();
+	t.detach();
 
 	system("pause");
 	return 0;
