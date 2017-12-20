@@ -18,7 +18,7 @@ using namespace std;
 double random(int id)
 {
 	unsigned long int rnd = (rand()* (1 + 1664524 * id) + 1013904223UL * id) % RAND_MAX;
-	return rnd / RAND_MAX;
+	return (double)rnd / (double)RAND_MAX;
 }
 
 double expo(double mu, int i)
@@ -93,4 +93,3 @@ int main() {
 	system("pause");
 	return 0;
 }
-
