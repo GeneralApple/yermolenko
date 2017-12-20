@@ -35,7 +35,7 @@ double expo(double mu, int i)
 
 void model(int j)
 {
-
+        srand(time(0));
 	double x = 0, y = 0; //початкові координати частинки
 	double l; //відстань прольоту частинки між актами взаємодії
 			  //int n = 0;
@@ -70,7 +70,7 @@ void model(int j)
 
 int main() {
 
-	srand(time(0));
+	
 	//int N = 1000;
 	//double pi = 3.1416;
 
