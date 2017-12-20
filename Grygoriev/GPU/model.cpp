@@ -1,3 +1,9 @@
+// ConsoleApplication43.cpp: определяет точку входа для консольного приложения.
+//
+
+#include "stdafx.h"
+
+
 #include <thread>  
 #include <iostream>
 #include <time.h>
@@ -79,12 +85,12 @@ int main() {
 
 	for (int i = 0; i<N; i++) myThreads[i].join();
 
-	for (int j = 0; j<20; j++)
+	for (int j = 0; j<40; j++)
 	{
 		int n = 0;
 		for (int k = 0; k<N; k++) {
 
-			if (h*(0.1*j - 1) <= xpos[k] && h*(0.1*j - 0.9) > xpos[k]) n++;
+			if (h*(0.05*j - 1) <= xpos[k] && h*(0.05*j - 0.95) > xpos[k]) n++;
 		}
 		cout << n << endl;
 	}
