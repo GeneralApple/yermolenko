@@ -11,11 +11,11 @@
 #include <cstdlib>
 //#include <unistd.h>
 
-#define N 1000
+#define N 1
 #define pi 3.1416
 #define d 1  //товщина пластини
 
-double mu = 0.1; //довжина вільного пробігу
+double mu = 0.2; //довжина вільного пробігу
 double h = 10;
 double xpos[N];
 
@@ -46,10 +46,12 @@ void model(int j)
 
 	while (1)
 	{
+		cout << "l:  "<<l<<"  dTh:  "<<dTh<<"  Theta:  "<<Theta<<"  y:  "<<y<<"  x:  "<<x << endl;
 		l = expo(mu, j);
 
 		y = y + l*cos(Theta);
 		x = x + l*sin(Theta);
+		
 		if (y >= d) break;
 		if (y<0)
 		{
@@ -58,8 +60,9 @@ void model(int j)
 		}
 		if (x<-h) break;
 		if (y>h) break;
-		dTh = random(j) *(4 * pi) - (2 * pi);
+		dTh = random(j) *(4*pi) - (2*pi);
 		Theta = Theta + dTh;
+		
 		//	    n++;
 	}
 
@@ -92,7 +95,7 @@ int main() {
 
 			if (h*(0.05*j - 1) <= xpos[k] && h*(0.05*j - 0.95) > xpos[k]) n++;
 		}
-		cout << n << endl;
+		//cout << n << endl;
 	}
 
 
