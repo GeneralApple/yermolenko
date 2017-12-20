@@ -30,12 +30,12 @@ double random(int id)
 double expo(double mu, int i)
 {
 	double u = random(i);
-	return -log(1 - u) / mu;
+	return -log(1 - u) * mu;
 };
 
 void model(int j)
 {
-        srand(time(0));
+	srand(time(0));
 	double x = 0, y = 0; //початкові координати частинки
 	double l; //відстань прольоту частинки між актами взаємодії
 			  //int n = 0;
@@ -70,7 +70,7 @@ void model(int j)
 
 int main() {
 
-	
+
 	//int N = 1000;
 	//double pi = 3.1416;
 
