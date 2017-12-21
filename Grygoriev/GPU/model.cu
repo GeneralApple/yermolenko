@@ -73,7 +73,7 @@ n++;
 
 }
 
-printf("position: %f \n", x);
+//printf("position: %f \n", x);
 pos[id] = x;
 }
 
@@ -108,14 +108,14 @@ model <<< 10, 1 >>> (dd,pos,dmu,dh, devStates);
 
 cudaMemcpy(xpos, pos, N*sizeof(double), cudaMemcpyDeviceToHost);
 
-/*for (int j = 0; j<20; j++)
+for (int j = 0; j<20; j++)
 {
     int n = 0;
     for(int k = 0; k<N;k++){
     
-    if( h*(0.1*j -1)<=xpos[k] && h*(0.1*j -0.9) > xpos[k]) n++;
+    if( (0.1*j -1)<=xpos[k] && (0.1*j -0.9) > xpos[k]) n++;
      }
 cout<<n<<endl;
-}*/
+}
 
 return 0;}
