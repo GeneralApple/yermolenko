@@ -24,8 +24,9 @@ __global__ void Random(curandState_t* states, unsigned int *c)
 
 int main(void)
 {
-  
-   curandState_t* states;
+
+
+	curandState_t* states;
   cudaMalloc((void**) &states, N * sizeof(curandState_t));
   
   int N = 1000000;
@@ -49,12 +50,11 @@ int main(void)
    Random<<<(1000, 1000>>>(states,d_y);
 
   cudaMemcpy(y, d_y, N*sizeof(int), cudaMemcpyDeviceToHost);
-
  
  
 	for (int i = 0; i < N; i++)
   {
-   
+
    cout<<y[i]<<endl;
   }
 	
@@ -64,8 +64,27 @@ int main(void)
 		if(y[k]>1000*j && y[k]<=1000*(j+1)) n++ }
  cout<<n<<endl;
 }*/
+	     
+	     
   
+	//знаходимо середнє значення
+	 int S = 0;
+	  for(int k = 0; k<N;k++) S+=y[i];
+	  cout<<endl;
+	  cout<<"mean: "<<(double)S/N<<endl;
+	     
+	   //знаходимо дисперсію
+	    double Sq = 0;
+	     for(int k = 0; k<N; k++) Sq+=(y[i]-S)*(y[i]-S);
+	     Sq = Sq/N;
+	     
+	     cout<<"Standart derivation: "<<sqrt(Sq);
+	 
 
+
+	     
+	     
+	     
   cudaFree(d_y);
   free(y);
              
