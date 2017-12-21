@@ -63,7 +63,7 @@ void model(int j)
 	}
 
 	xpos[j] = x;
-	cout << xpos[j]<<"   ";
+	//cout << xpos[j]<<"   ";
 }
 
 
@@ -92,7 +92,8 @@ int main() {
 
 			if (h*(0.05*j - 1) <= xpos[k] && h*(0.05*j - 0.95) > xpos[k]) n++;
 		}
-		//cout << n << endl;
+		//cout << "startpos:  "<< h*(0.05*j - 1)<<"  finpos:  "<< h*(0.05*j - 0.95) <<"  n:  "<<n << endl;
+		cout << n << endl;
 	}
 
 
