@@ -118,4 +118,11 @@ for (int j = 0; j<20; j++)
 cout<<n<<endl;
 }
 
+    //запис в файл
+	ofstream f;
+
+	f.open("E:\\data.txt");
+	for (int i = 0; i < N; i++) f << xpos[i] << endl;
+	f.close();
+    
 return 0;}
