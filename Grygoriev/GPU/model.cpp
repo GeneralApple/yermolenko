@@ -11,11 +11,11 @@
 #include <cstdlib>
 //#include <unistd.h>
 
-#define N 100
+#define N 1000
 #define pi 3.1416
 #define d 1  //товщина пластини
 
-double mu = 0.3; //довжина вільного пробігу
+double mu = 0.1; //довжина вільного пробігу
 double h = 10;
 double xpos[N];
 
@@ -90,7 +90,7 @@ int main() {
 		int n = 0;
 		for (int k = 0; k<N; k++) {
 
-			if (h*(0.05*j - 1) <= xpos[k] && h*(0.05*j - 0.95) > xpos[k]) n++;
+			if ((0.05*j - 1) <= xpos[k] && (0.05*j - 0.95) > xpos[k]) n++;
 		}
 		//cout << "startpos:  "<< h*(0.05*j - 1)<<"  finpos:  "<< h*(0.05*j - 0.95) <<"  n:  "<<n << endl;
 		cout << n << endl;
